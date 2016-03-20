@@ -1,0 +1,257 @@
+<html>
+  <head>
+      <link href="https://fonts.googleapis.com/css?family=Raleway:400,400,600" rel="stylesheet" type="text/css">
+
+      <link rel="stylesheet" href="css/normalize.css">
+      <link rel="stylesheet" href="css/skeleton.css">
+      <link rel="styleSheet" href="css/main.css">
+
+      <style type="text/css"></style>
+
+  </head>
+  <body class="default">
+    <div class="container">
+      <div class="row">
+        <div class="four column" style="margin-top: 10%">
+        <h1>Project Five: Image Morphing</h1>
+        <h5>CS 194-26: Computational Photography | <a href="http://krishna.im">Krishna Parashar</a></h5>
+
+    <h2>Background: Image Morphing</h2>
+    <p>For this assignment I sought to write an program to morph two images together. The morph was described by two factors: warping the shape of the images and cross-dissolving the colors. I primary used only faces for my morphs shown here, but other images could be used as well. I also took a dataset and averaged the prototypical member of the dataset </p>
+
+    
+
+    <h2>Implementation</h2>
+      <p>
+      The first step to Morphing is to specify corresponding points between the two images. As suggested in the class, I used 43 points that focused on the facial features (eyes, nose, mouth, and ears) and the facial structure. This ended up working out pretty well. After tediously and manually specifying the amounts, I made sure the save them as text files so I could reuse the points. After these (equal number of) points (for the same size images) are specified, the program then found a Delaunay triangulation (using the scipy library) on the average of the points. An appropriate affine transformation was then computed for morphing the points in each image into the points in the average image using the triangulations. Because a set of these matrices required an inverse warp, a mask was used (from the scikit image library). From all this the warped images and the average image were outputted. 
+      </p>
+
+
+    <h2>Morphs</h2>
+    <p> I ended up using images from <a href='Martin Schoeller'>Martin Schoeller</a> beautifully minimalist photos of famous people. The provided the optimum size, background, and composure similarity. As a result the morphs turned out beautifully.<p>
+
+    <table class="spacearound">
+      <tr>
+        <td>
+            <img src="images/obama.jpg" width=400>
+            <p>Barrack Obama</p>
+        </td>
+
+        <td>
+            <img src="images/obama_mccain.jpg" width=400>
+            <p>Average Image</p>
+        </td>
+
+        <td>
+            <img src="images/mccain.jpg" width=400>
+            <p>John McCain</p>
+        </td>
+      </tr>
+    </table>
+
+    <table class="spacearound">
+      <tr>
+        <td>
+            <img src="images/obama.jpg" width=400>
+            <p>Barack Obama</p>
+        </td>
+
+        <td>
+            <img src="images/obama_mccain.gif" width=400>
+            <p>Morphing GIF</p>
+        </td>
+
+        <td>
+            <img src="images/mccain.jpg" width=400>
+            <p>John McCain</p>
+        </td>
+      </tr>
+    </table>
+
+    <table class="spacearound">
+      <tr>
+        <td>
+            <img src="images/pitt.jpg" width=400>
+            <p>Brad Pitt</p>
+        </td>
+
+        <td>
+            <img src="images/pitt_bryant.gif" width=400>
+            <p>Morphing GIF</p>
+        </td>
+
+        <td>
+            <img src="images/bryant.jpg" width=400>
+            <p>Kobe Bryant</p>
+        </td>
+      </tr>
+    </table>
+    
+
+    <h2>Mean Face of Populace</h2>
+    <p>I used the <a href="http://www2.imm.dtu.dk/~aam/datasets/datasets.html">Danes</a> dataset, particularly the ones of them smiling. We averaged thirty seven images of both the males and females to create the mean face (really anything but, they are all smiling) shown below. The face looks more masculine due to the majority of photos being men.<p>
+
+
+    <table class="spacearound">
+      <tr>
+        <td>
+            <img src="images/dane1.jpg" width=400>
+            <p></p>
+        </td>
+
+        <td>
+            <img src="images/dane2.jpg" width=400>
+            <p></p>
+        </td>
+
+        <td>
+            <img src="images/dane3.jpg" width=400>
+            <p></p>
+        </td>
+      </tr>
+    </table>
+
+    <img src="images/danish_average.jpg" width=1200>
+        <p></p>
+
+
+
+    <h2>Caricatures</h2>
+    <p> I also messed around with my own face, choosing values that would morph me into a Dane (oh how I have always wanted in to fit in in Denmark). However as is expected, I look pretty terrible. <p>
+
+    <table class="spacearound">
+      <tr>
+        <td>
+            <img src="images/danish_average.jpg" width="400">
+            <p>The Great Average Dane</p>
+        </td>
+
+        <td>
+            <img src="images/krishna.jpg" width="400">
+            <p>Me</p>
+        </td>
+      </tr>
+    </table>
+
+
+    <table class="spacearound">
+      <tr>
+        <td>
+            <img src="images/me_0.1.jpg" width=400>
+            <p>Basically Me (0.1 Distortion)</p>
+        </td>
+
+        <td>
+            <img src="images/me_0.6.jpg" width=400>
+            <p>About Average (0.6 Distortion)</p>
+        </td>
+
+        <td>
+            <img src="images/me_1.1.jpg" width=400>
+            <p>Too Much Dane (1.1 Distortion)</p>
+        </td>
+      </tr>
+    </table>
+
+<!--     <h2>BW: Racially Diverse Me</h2>
+    <p>Obviously not satisfied with the potential results of a Danish facial reconstructive surgery, I turned to other races/sexes to see which would offer me a better place in this cruel world. Here I am as a more Indian (straight up India) man, Bollywood Actress, Korean Man, and English Man.<p>
+
+    <table class="spacearound">
+      <tr>
+        <td>
+            <img src="images/me.jpg" width=400>
+            <p>Me (Original)</p>
+        </td>
+
+        <td>
+            <img src="images/me_h100.jpg" width=400>
+            <p>Indian Man</p>
+        </td>
+
+        <td>
+            <img src="images/me_w100.jpg" width=400>
+            <p>(More) Indian Me</p>
+        </td>
+      </tr>
+    </table>
+
+
+    <table class="spacearound">
+      <tr>
+        <td>
+            <img src="images/me.jpg" width=400>
+            <p>Me (Original)</p>
+        </td>
+
+        <td>
+            <img src="images/me_h100.jpg" width=400>
+            <p>English Man</p>
+        </td>
+
+        <td>
+            <img src="images/me_w100.jpg" width=400>
+            <p>English Me</p>
+        </td>
+      </tr>
+    </table>
+
+    <table class="spacearound">
+      <tr>
+        <td>
+            <img src="images/me.jpg" width=400>
+            <p>Me (Original)</p>
+        </td>
+
+        <td>
+            <img src="images/me_h100.jpg" width=400>
+            <p>Bollywood Actress</p>
+        </td>
+
+        <td>
+            <img src="images/me_w100.jpg" width=400>
+            <p>Uhhh, Me?</p>
+        </td>
+      </tr>
+    </table>
+
+    <table class="spacearound">
+      <tr>
+        <td>
+            <img src="images/me.jpg" width=400>
+            <p>Me (Original)</p>
+        </td>
+
+        <td>
+            <img src="images/me_h100.jpg" width=400>
+            <p>Korean Man</p>
+        </td>
+
+        <td>
+            <img src="images/me_w100.jpg" width=400>
+            <p>Korean Jesus (Still Me)</p>
+        </td>
+      </tr>
+    </table>     -->
+
+    <h2>BW: The Clan</h2>
+    To have some fun, I made a little video to show me and my house mates all morphing into each other. This is humorous because we are all the same (but not actually).
+
+    <a href="https://youtu.be/fny_6LvsbBc">YouTube Link</a> 
+
+
+
+    <h2>BW: Class Morph</h2>
+    I participated in the Class Morph. Look out for that on Piazza!
+
+
+    <br><br><br>   
+
+    <h2>What I Learned</h2>
+    This was a pretty challenging project but I found it super cool to understand the simplicity of the image transitions I take for granted, be it in a slideshow, movie, or YouTube video. It was a grand time. 
+    <br><br><br>
+
+    </div>
+  </div>
+
+  </body> 
+</html>

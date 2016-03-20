@@ -1,0 +1,296 @@
+@import "http://fonts.googleapis.com/css?family=Source+Sans+Pro:400,700";
+
+article,aside,details,figcaption,figure,footer,header,hgroup,main,nav,section {
+  display:block
+}
+
+audio[controls],canvas,video {
+  display:inline-block;
+  *display:inline;
+  *zoom:1
+}
+
+a,abbr,acronym,address,applet,article,aside,audio,b,big,blockquote,body,canvas,caption,center,cite,code,dd,del,details,dfn,div,dl,dt,em,embed,fieldset,figcaption,figure,footer,form,h1,h2,h3,h4,h5,h6,header,hgroup,html,i,iframe,img,ins,kbd,label,legend,li,main,mark,menu,nav,object,ol,output,p,pre,q,ruby,s,samp,section,small,span,strike,strong,sub,summary,sup,tbody,tfoot,thead,time,tr,tt,u,ul,var,video {
+  margin:0;
+  padding:0;
+  border:0;
+  font:inherit;
+  vertical-align:baseline
+}
+
+body {
+  line-height:1
+}
+
+ol,ul {
+  list-style:none
+}
+
+blockquote,q {
+  quotes:none
+}
+.center {
+  display:block;
+  padding-left: 25%;
+  margin: auto;
+  font-size: 1em;
+}
+blockquote:after,blockquote:before,q:after,q:before {
+  content:'';
+  content:none
+}
+
+html {
+  font-size:100%;
+  -webkit-text-size-adjust:100%;
+  -ms-text-size-adjust:100%
+}
+
+a:focus {
+  outline:thin dotted
+}
+
+a:active,a:hover {
+  outline:0
+}
+
+abbr[title] {
+  border-bottom:1px dotted
+}
+
+img {
+  border:0;
+  -ms-interpolation-mode:bicubic
+}
+
+svg:not(:root) {
+  overflow:hidden
+}
+
+label {
+  cursor:pointer
+}
+
+legend {
+  border:0;
+  *margin-left:-7px;
+  padding:0
+}
+
+button,input,select,textarea {
+  font-size:100%;
+  margin:0;
+  vertical-align:baseline;
+  *vertical-align:middle
+}
+
+button,input {
+  line-height:normal;
+  *overflow:visible
+}
+
+button,input[type=button],input[type=reset],input[type=submit] {
+  cursor:pointer;
+  -webkit-appearance:button
+}
+
+input[type=checkbox],input[type=radio] {
+  box-sizing:border-box
+}
+
+input[type=search] {
+  -moz-box-sizing:content-box;
+  -webkit-box-sizing:content-box;
+  box-sizing:content-box
+}
+
+button::-moz-focus-inner,input::-moz-focus-inner {
+  border:0;
+  padding:0
+}
+
+textarea {
+  overflow:auto;
+  vertical-align:top
+}
+
+body.default {
+  border-top-color:#4dbce9
+}
+
+.default h1,.default h2,.default h3 {
+  color:#4dbce9
+}
+
+.default a {
+  color:#4dbce9;
+  border-bottom-color:#4dbce9
+}
+
+html {
+  background:#002b36;
+}
+
+body {
+  padding:5% 5%;
+  background:#002b36;
+  border-top:solid .4em transparent;
+  font-family:'Source Sans Pro',sans-serif;
+  color:#93a1a1;
+  font-size:15px
+}
+
+@media screen and (min-width:400px) {
+body {
+  font-size:16px
+}
+}
+
+@media screen and (min-width:650px) {
+body {
+  font-size:17px
+}
+}
+
+@media screen and (min-width:900px) {
+body {
+  font-size:18px
+}
+}
+
+@media screen and (min-width:1050px) {
+body {
+  font-size:19px
+}
+}
+
+@media screen and (min-width:1200px) {
+body {
+  font-size:20px
+}
+}
+
+@media screen and (min-width:1400px) {
+body {
+  font-size:21px
+}
+}
+
+@media screen and (min-width:1600px) {
+body {
+  font-size:22px
+}
+}
+
+main {
+  margin:0 auto;
+  max-width:32em
+}
+
+h1,h2,h3 {
+  line-height:1.4
+}
+
+h4, h5 {
+  line-height:1;
+  padding-top: 2%;
+}
+
+li,p {
+  line-height:1.6
+}
+
+@media screen and (min-width:400px) {
+li,p {
+  line-height:1.65
+}
+}
+
+@media screen and (min-width:650px) {
+li,p {
+  line-height:1.7
+}
+}
+
+@media screen and (min-width:900px) {
+li,p {
+  line-height:1.8
+}
+}
+
+h1 {
+  font-size:1.9em;
+  font-weight:700
+}
+
+h2 {
+  font-size:1.25em;
+  font-weight:700;
+  margin-top:2em
+}
+
+h3 {
+  font-weight:700;
+  margin-top:2em
+}
+
+hr {
+  border:0;
+  border-top:solid .15em #ddd;
+  margin:2em 0
+}
+
+li strong,p strong {
+  font-weight:700
+}
+
+li em,p em {
+  font-style:italic
+}
+
+figure,main>ol,main>ul,p {
+  margin-top:1em;
+  margin-bottom:1em
+}
+
+a {
+  font-weight:700;
+  text-decoration:none;
+  border-bottom:.15em solid transparent;
+}
+
+a:hover {
+  color:#eee8d5;
+  border-bottom-color:#eee8d5
+}
+
+img {
+  display:block;
+  max-width:100%;
+  margin:1em auto;
+
+}
+
+blockquote {
+  border-left:.15em solid #DDD;
+  padding-left:1em;
+  color:#999
+}
+
+ol,ul {
+  padding-left:1.4em
+}
+
+ul {
+  list-style-type:disc
+}
+
+ol {
+  list-style-type:decimal
+}
+
+table.spacearound {
+  border-spacing: 50px 0;
+  margin-left: auto;
+  margin-right: auto;
+}   

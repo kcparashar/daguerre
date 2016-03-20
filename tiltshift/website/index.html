@@ -1,0 +1,218 @@
+<html>
+  <head>
+      <link href="https://fonts.googleapis.com/css?family=Raleway:700,700,600" rel="stylesheet" type="text/css">
+
+      <link rel="stylesheet" href="css/normalize.css">
+      <link rel="stylesheet" href="css/skeleton.css">
+      <link rel="styleSheet" href="css/main.css">
+
+      <style type="text/css"></style>
+
+  </head>
+  <body class="default">
+    <div class="container">
+      <div class="row">
+        <div class="four column" style="margin-top: 10%">
+        <h1>Final Project: Tilt Shifting & Vertigo Effect</h1>
+        <h5>CS 194-26: Computational Photography | <a href="http://krishna.im">Krishna Parashar</a></h5>
+
+    <h2>Background: Fake Image Miniatures</h2>
+    <p>Tilt Shifting is a popular effect featured amongst the likes of Photographers on Flickr as well as for comedic effect on television programs such as The Colbert Report. Functionally the effect focuses on a small select region by blurring the the part of the image not in the region and dramatizes the colors a bit more.</p>
+
+    
+
+    <h2>Implementation: Tilt Shifting</h2>
+      <p>
+      To implement this effect in a program, I took an image and created a mask for it as a simple linear band of a gradient. Alternatively for special images where a linear band would not suffice, one could create a special mask in photoshop and apply that to the image. After the mask is loaded, the program applies a Gaussian filter to the image with as select sigma value that increase as you get farther from the masked part of the image. This is so the depth of field appears wider. To dramatize the effect and make you really feel like something has changed, we increase the color balance and contrast so the image appears very colorful and toyish. 
+      </p>
+
+    <p>Here are how the images look!</p>
+
+      <h3>Space Shuttle</h3>
+      <table class="spacearound">
+        <tr>
+          <td>
+              <img src="images/space_shuttle.jpg">
+              <p>Original Image</p>
+              <figcaption><a href="https://en.wikipedia.org/wiki/Space_Shuttle">(Source)</a></figcaption>
+          </td>
+
+          <td>
+              <img src="images/space_shuttle_mini.jpg">
+              <p>Miniaturized Image</p>
+          </td>
+        </tr>
+      </table>
+
+
+      <h3>San Francisco</h3>
+      <table class="spacearound">
+        <tr>
+          <td>
+              <img src="images/sf.jpg">
+              <p>Original Image</p>
+              <figcaption><a href="http://www.telegraph.co.uk/travel/destination/usa/article134920.ece/ALTERNATES/w620/paintedladiessanfrancsico.jpg">(Source)</a></figcaption>
+          </td>
+
+          <td>
+              <img src="images/sf_mini.jpg">
+              <p>Miniaturized Image</p>
+          </td>
+        </tr>
+      </table>
+
+
+      <h3>MLK Student Union</h3>
+      <table class="spacearound">
+        <tr>
+          <td>
+              <img src="images/mlk.jpg">
+              <p>Original Image</p>
+          </td>
+
+          <td>
+              <img src="images/mlk_mini.jpg">
+              <p>Miniaturized Image</p>
+          </td>
+        </tr>
+      </table>
+
+      <h3>The Berkeley Hills</h3>
+      <table class="spacearound">
+        <tr>
+          <td>
+              <img src="images/hills.jpg">
+              <p>Original Image</p>
+          </td>
+
+          <td>
+              <img src="images/hills_mini.jpg">
+              <p>Miniaturized Image</p>
+          </td>
+        </tr>
+      </table>
+
+      <h2>B&W: Comparing with Camera Level Tilt Shifting</h2>
+      I was able to use my camera to produce tilt shifted photos. Check out how it compares to the Programmatic version. It stacks up quite well. 
+        <table class="spacearound">
+          <tr>
+            <td>
+                <img src="images/units_camera.jpg">
+                <p>Camera</p>
+            </td>
+
+            <td>
+                <img src="images/units_mini.jpg">
+                <p>Programmatic</p>
+            </td>
+          </tr>
+        </table>
+
+      <h2>B&W: Complex DOF Regions</h2>
+        Since not all images are sufficiently miniaturized using band masks, I created a special mask in Photoshop to miniaturize a select part of the image. Here you can see the results. 
+        <table class="spacearound">
+          <tr>
+            <td>
+                <img src="images/trash.jpg">
+                <p>Image</p>
+            </td>
+
+            <td>
+                <img src="images/trash_mask.jpg">
+                <p>Mask</p>
+            </td>
+
+            <td>
+                <img src="images/trash_mini.jpg">
+                <p>Miniaturized Image</p>
+            </td>
+          </tr>
+        </table>
+
+
+      <h2>B&W: Fake Stop Motion</h2>
+      Finally in an effort to really hit the effect here, I took a series of Photos from the Campanile and the newly constructed Eshleman Hall to produce these wonderful stop motion GIFs.
+
+      <h3>Glade upon Campus</h3>
+      <img src="images/glade.gif">
+
+      <h3>Bancroft Way</h3>
+      <img src="images/bancroft.gif">
+
+
+<!--       <h2>B&W: Improving Image with Edge Preserving Filter</h2>
+      <img src="images/chess_rf.gif"> -->
+
+      <hr>
+
+
+    <h2>Background: Vertigo Zoom</h2>
+    <p>Our goal for this project was to mimic the famous <a href="http://en.wikipedia.org/wiki/Dolly_zoom">dolly zoom/vertigo effect</a> technique that Alfred Hitchcock made famous in his film Vertigo as well as in Steven Spielberg's Jaws. The effect is produced by smoothly and aptly changing the zoom of the camera in one direction, while physically moving in the opposite direction. The result is an almost stationary foreground and a disorientingly shifty background that is really fun to make.</p>
+
+    <h2>Implementation: Vertigo Zoom</h2>
+      <p>
+      I used my Sony A7ii with a f/4 24-70mm to take a series of photos at different distances and focal lengths. In the following cases I stood a distance with the focal length at 70mm as I walked slowly forward and decrease the focal length. The pictures turned out a bit shaky in the GIF below, but since my camera could take video, I also took a well stabilized video that really smoothly shows off the effect. I chose to try this out in my room after rain had taken over the outside with one of the most utilitarian objects: a Mason Jar.
+      </p>
+
+      <p>Let's see how this all looked in practice:
+      </p>
+
+      <h3>Mason Jar</h3>
+      <img src="images/mason_jar.gif">
+      <figcaption></figcaption>
+
+      <h4>Video</h4> <br>
+      <iframe width="560" height="315" src="https://www.youtube.com/embed/ZxX51aQwiEo" frameborder="0" allowfullscreen></iframe>
+
+
+      <p>Since the walking clearly was quite choppy, I resorted to sitting on my roommates rolling chair and taking a video of him playing guitar. Here you can see both the GIF and Video </p>
+      <h3>Vertigo Roommate</h3>
+      <img src="images/roommate.gif">
+
+      <h4>Video</h4> <br>
+      <iframe width="560" height="315" src="https://www.youtube.com/embed/4f5WwQo-yB8" frameborder="0" allowfullscreen></iframe>
+
+      <p>It is indeed quite hard to replicate this effect without the proper equipment, specifically a dolly (with a track) for smooth movement and a cinema lens that allows for very gradual focal length changes. Some of the other shots I tried didn't quite work because the effect is severely dampened when people move around in the shots. The shots nevertheless turned out well enough the showcase the effect and it's one more thing I now know how to do.</p>
+
+
+    <h2>B&W: Subject Moving</h2>
+    <p>Here I decided to make the subject move instead of me to see what would happen to the effect. As you can see that makes a drastic difference since I keep the camera extremely still.</p>
+
+    <iframe width="560" height="315" src="https://www.youtube.com/embed/_OCzKgJtKCM" frameborder="0" allowfullscreen></iframe>
+
+
+
+    <h2>B&W: Compute Field of View</h2>
+    <p>
+    Since my camera is a 24-70mm lens, I computed the FOV at 24mm and 50mm focal lengths. I used a bottle of Soylent 2.0 which was 370mm high and 100mm at the widest point to calibrate. The distance from the 24mm picture to the bottle was 1030mm and with the 50mm picture it was 955mm.</p>
+
+    <p>
+    The Field of View (FOV) is calculated as : 2 * arctan(object_in_image / (2 * distance_from_object))
+    </p>
+
+    </p> Thus I ended up with the values:
+    <br><br>Vertical FOV
+    <ul>
+      <li>24mm: 20.36 degrees</li>
+      <li>50mm : 21.94 degrees</li> 
+    </ul>
+    <br>Horizontal FOV
+    <ul>
+      <li>24mm: 26.23 degrees</li>
+      <li>50mm : 24.39 degrees</li> 
+    </ul>
+    </p>
+
+   
+    <h2>What I Learned</h2>
+    <p>It was fascinating to use the final projects to learn about some more really cool effects used in Photography, and even more interestingly, Cinematography. I would I have like to try my hand with my own project, but unfortunately time constraints wouldn't permit me to. Nevertheless I thoroughly enjoyed these projects.</p>
+
+    <h2>Colophon</h2>
+    <p>This course has been one of the few courses I have taken here that despite any challenges, I approached every project with immense joy to learn how my favorite Photoshop effects worked. I learned a ton about cameras, signal, photography and more, and I can't help but that all the people who helped make the course possible, especially Professor Efros, Rachel Albert, and Weilun Sun. You all did a phenomenal job and I heartily recommend this course to anyone with a modicum of interest.</p>
+
+    <br><br><br>
+    </div>
+  </div>
+
+  </body> 
+</html>

@@ -1,0 +1,188 @@
+@import "http://fonts.googleapis.com/css?family=Source+Sans+Pro:400,700";
+body {
+    margin: 0px;
+    font-family:'Source Sans Pro',sans-serif;
+    background-color: #002A36;
+    color: #93a1a1;
+}
+
+#overlay {
+    position: fixed;
+    background: rgba(0,0,0,0.5);
+    top: 0px;
+    bottom: 0px;
+    left: 0px;
+    right: 0px;
+}
+
+#header {
+    text-align: center;
+    width: 100%;
+    position: fixed;
+    padding: 10px 0px;
+    background: #4dbce9;
+    color: #ffffff;
+    margin-top: 0px;
+    z-index: 100;
+}
+
+#project-name {
+    font-size: 32px;
+    margin-bottom: 5px;
+    font-weight: 600;
+}
+
+#name {
+    font-size: 23px;
+    margin-top: 10px;
+}
+
+#subtitle {
+    font-size: 20px;
+    margin-bottom: 5px;
+}
+
+#content {
+    margin-top: 136px;
+    width: 100%;
+    position: absolute;
+    padding: 20px 0px;
+    overflow-y: scroll;
+}
+
+.elem {
+    /*border: 1px solid darkgrey;*/
+    border-radius: 3px;
+    padding: 0px 20px;
+    width: 90%;
+    margin: 0px auto;
+    text-align: center;
+    margin-bottom: 20px;
+    z-index: 50;
+}
+
+.photo {
+    width: 100%;
+}
+
+.photo-elem {
+    width: 40%;
+    display: inline-block;
+    padding: 30px 30px 20px 30px;
+    vertical-align: top;
+}
+.third-photo-elem {
+    width: 25%;
+    display: inline-block;
+    padding: 20px 20px 10px 20px;
+    vertical-align: top;
+}
+.long-photo-elem {
+    width: 90%;
+    display: inline-block;
+    padding: 20px 20px 20px 20px;
+    vertical-align: top;
+}
+
+.fourth-photo-elem {
+    width: 40%;
+    display: inline-block;
+    padding: 20px 20px 10px 20px;
+    vertical-align: top;
+}
+
+.photo-container {
+    text-align: center;
+}
+
+.description {
+    padding: 10px;
+}
+
+.description-title {
+    font-size: 20px;
+    margin-bottom: 5px;
+    font-weight: 400;
+}
+
+.description-info {
+    font-size: 14px;
+    font-weight: 300;
+    line-height: 150%;
+}
+
+.text-title {
+    font-weight: 500;
+    font-size: 28px;
+    padding: 20px 0px 10px 0px;;
+}
+
+.text {
+    line-height: 150%;
+    font-size: 14px;
+    font-weight: 300;
+    padding-bottom: 20px;
+}
+
+.image-text {
+    line-height: 150%;
+    font-size: 14px;
+    font-weight: 300;
+    padding: 20px 0px;
+}
+
+
+
+.photo-pair {
+    display: inline-block;
+    width: 45%;
+}
+
+#modal {
+    position:fixed;
+    width:100%;
+    height:100%;
+    top:0px;
+    left:0px;
+    right:0px;
+    bottom:0px;
+    z-index:888;
+    display: none;
+}
+
+#modal-overlay {
+    position:absolute;
+    background-color:rgba(0,0,0,0.7);
+    height:100%;
+    width:100%;
+}
+
+#modal-content {
+    position:absolute;
+    height:100%;
+    width:100%;
+    overflow-y:scroll;
+}
+
+
+.modal-button {
+    padding: 10px 20px;
+    background: white;
+    width: 50px;
+    text-align: center;
+    display: inline-block;
+    margin: 0px 5px;
+}
+
+#container {
+    width: 50%;
+    margin: 60px auto 0px auto;
+}
+
+#photo-modal {
+    width: 100%;
+}
+
+.image-container {
+    text-align: center;
+}

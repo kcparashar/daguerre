@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+  <!-- Basic Page Needs
+  –––––––––––––––––––––––––––––––––––––––––––––––––– -->
+  <meta charset="utf-8">
+  <title>Computational Photography Project 1</title>
+  <meta name="description" content="">
+  <meta name="author" content="">
+
+  <!-- Mobile Specific Metas
+  –––––––––––––––––––––––––––––––––––––––––––––––––– -->
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <!-- FONT
+  –––––––––––––––––––––––––––––––––––––––––––––––––– -->
+  <link href="//fonts.googleapis.com/css?family=Raleway:400,300,600" rel="stylesheet" type="text/css">
+
+  <!-- CSS
+  –––––––––––––––––––––––––––––––––––––––––––––––––– -->
+  <link rel="stylesheet" href="css/normalize.css">
+  <link rel="stylesheet" href="css/skeleton.css">
+  <link rel="stylesheet" href="css/main.css">
+
+  <!-- Favicon
+  –––––––––––––––––––––––––––––––––––––––––––––––––– -->
+  <link rel="icon" type="image/png" href="images/favicon.ico">
+
+</head>
+<body class="default">
+
+  <!-- Primary Page Layout
+  –––––––––––––––––––––––––––––––––––––––––––––––––– -->
+  <div class="container">
+    <div class="row">
+      <div class="four column" style="margin-top: 10%">
+
+        <h1>Project 1: Colorizing Prokudin-Gorskii Images</h1>
+        <h5>CS194-26 Computational Photography | <a href="http://krishna.im">Krishna Parashar</a></h5>
+
+        <h2>Historical Premise</h2>
+        <p>Between 1905 and 1915, Russian Chemist Sergei Mikhailovich Prokudin-Gorskii toured the vast Russian Empire taking over 2000 photos. He employed a unique approach by applied Red, Green, and Blue filters over the images, in hopes that one day these glass negatives could be inserted into a machine which would overlay the images and produce a color one. Unfortunately calamity and war struck the Russian Empire - namely World War 1 and 2, and as a consequence this dream was never realized. The Library of Congress then purchased these glass plates in 1948, and as technology advanced, they created and uploaded to the Internet high resolution scans of these images.</p>
+
+        <h2>Overview</h2>
+        <p>Thanks to modern day computers, tools, libraries, and resources all it takes now is programming assignment in a class to realize Prokudin-Gorskii dream, albeit in a digital manner. This project seeks to take the scanned images of the the three color-filtered negatives (red, green, and blue), then uses image processing techniques to appropriately align them, overlaying them to give us a visual peek into life over a hundred years ago.</p>
+
+        <h2>Process</h2>
+        <p>This project initially took a smaller version of the three images in the form of a .jpg file, and looped through a small section of the image, looking for the best raw pixel match using the <a href="https://en.wikipedia.org/wiki/Cross-correlation">Normalized Cross Correlation</a> metric. This allowed for satisfactory results on these small scaled images, but was prohibitively slow for large .tiff (upward of 70MB). Thus the image pyramid process was used in which the large image would be scaled down using a Gaussian blur recursively, until the brute force method could be applied to it (as used for the smalled images). We then go up the recursive stack, applying these best guesses for a displacement vector onto the bigger images, limiting the search radii to a more manageable and accurate subsection.</p>
+
+        <h2>Problems</h2>
+        <p>Difficulty occurred when I tried to align larger images without cropping the images (leading to bad alignment due to massive borders). To solve this, I cropped a small portion (~10%) of the image and ran the algorithms on that. I also encountered a divide by zero error for Turkmen (turkmen.tif) for unknown reasons. It could be due to the extreme similarity of color in the image. However, it was too painful to debug, so I did not. Thus the image rendered somewhat blurry, however this could probably be solved with better metrics or edge detection.</p>
+
+        <h2>Given Images</h2>
+          <img class="u-max-full-width" height="420" src="images/bridge.jpg">
+          <p class="center">Bridge (Green: [12, -10], Red: [68, 4])</p> <br>
+
+          <img class="u-max-full-width" height="420" src="images/cathedral.jpg">
+          <p class="center">Cathedral (Green: [5, 2], Red: [12, 3])</p> <br>
+
+          <img class="u-max-full-width" height="420" src="images/emir.jpg">
+          <p class="center">Emir (Green: [49, 24], Red: [103, 55])</p> <br>
+
+          <img class="u-max-full-width" height="420" src="images/harvesters.jpg">
+          <p class="center">Harvesters (Green: [59, 16], Red: [124, 13])</p> <br>
+
+          <img class="u-max-full-width" height="420" src="images/icon.jpg">
+          <p class="center">Icon (Green: [41, 17], Red: [89, 23])</p> <br>
+
+          <img class="u-max-full-width" height="420" src="images/lady.jpg">
+          <p class="center"> Lady (Green: [51, 9], Red: [112, 11])</p> <br>
+
+          <img class="u-max-full-width" height="420" src="images/melons.jpg">
+          <p class="center"> Melons (Green: [81, 10], Red: [178, 13])</p> <br>
+
+          <img class="u-max-full-width" height="420" src="images/monastery.jpg">
+          <p class="center">Monastery (Green: [-3, 2], Red: [3, 2])</p> <br>
+
+          <img class="u-max-full-width" height="420" src="images/nativity.jpg">
+          <p class="center">Nativity (Green: [3, 1], Red: [7, 0])</p> <br>
+
+          <img class="u-max-full-width" height="420" src="images/onion_church.jpg">
+          <p class="center"> Onion Church (Green: [51, 26], Red: [108, 36])</p> <br>
+
+          <img class="u-max-full-width" height="420" src="images/self_portrait.jpg">
+          <p class="center"> Self Portrait (Green: [78, 29], Red: [176, 37])</p> <br>
+
+          <img class="u-max-full-width" height="420" src="images/settlers.jpg">
+          <p class="center">Settlers (Green: [7, 0], Red: [14, -1])</p> <br>
+
+          <img class="u-max-full-width" height="420" src="images/three_generations.jpg">
+          <p class="center"> Three Generations (Green: [53, 14], Red: [112, 11])</p> <br>
+
+          <img class="u-max-full-width" height="420" src="images/tobolsk.jpg">
+          <p class="center">Tobolsk (Green: [3, 3], Red: [6, 3])</p> <br>
+
+          <img class="u-max-full-width" height="420" src="images/train.jpg">
+          <p class="center">Train (Green: [42, 5], Red: [87, 32])</p> <br>
+
+          <img class="u-max-full-width" height="420" src="images/turkmen.jpg">
+          <p class="center">Turkmen (Green: [34, 2], Red: [116, 28])</p> <br>
+
+          <img class="u-max-full-width" height="420" src="images/village.jpg">
+          <p class="center">Village (Green: [64, 12], Red: [137, 22])</p> <br>
+
+          <img class="u-max-full-width" height="420" src="images/workshop.jpg">
+          <p class="center">Workshop (Green: [53, 0], Red: [105, -12])</p> <br>
+
+
+
+          <h2>Chosen Images</h2>
+            <img class="u-max-full-width" height="420" src="images/arch.jpg">
+            <p class="center">Arch (Green: [73, 22], Red: [154, 35])</p> <br>
+
+            <img class="u-max-full-width" height="420" src="images/dock.jpg">
+            <p class="center">Dock (Green: [29, 4], Red: [84, 7])</p> <br>
+
+            <img class="u-max-full-width" height="420" src="images/patio.jpg">
+            <p class="center">Patio (Green: [60, 6], Red: [126, 4])</p> <br>
+
+            <img class="u-max-full-width" height="420" src="images/sculpture.jpg">
+            <p class="center">Sculpture (Green: [15, 21], Red: [43, 27])</p> <br>
+
+            <img class="u-max-full-width" height="420" src="images/snow.jpg">
+            <p class="center">Snow (Green: [10, 16], Red: [90, 32])</p> <br>
+      </div>
+    </div>
+  </div>
+
+<!-- End Document
+  –––––––––––––––––––––––––––––––––––––––––––––––––– -->
+</body>
+</html>

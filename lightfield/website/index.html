@@ -1,0 +1,182 @@
+<html>
+  <head>
+      <link href="https://fonts.googleapis.com/css?family=Raleway:700,700,600" rel="stylesheet" type="text/css">
+
+      <link rel="stylesheet" href="css/normalize.css">
+      <link rel="stylesheet" href="css/skeleton.css">
+      <link rel="styleSheet" href="css/main.css">
+
+      <style type="text/css"></style>
+
+  </head>
+  <body class="default">
+    <div class="container">
+      <div class="row">
+        <div class="four column" style="margin-top: 10%">
+        <h1>Project Six: Lightfield Camera</h1>
+        <h5>CS 194-26: Computational Photography | <a href="http://krishna.im">Krishna Parashar</a></h5>
+
+    <h2>Background: Light Field Data</h2>
+    <p>In <a href="http://graphics.stanford.edu/papers/lfcamera/lfcamera-150dpi.pdf">his paper</a> written back in 2005 at Stanford, Ren Ng (founder of the Lytro) and his colleagues wanted to see if depth of field and aperture could be adjusted in post process, which normally would be almost impossible to do. Specifically this could allow for refocusing blurry images as well as allow all subject in a image to be perfectly visible. They did by capturing multiple images using a 17 by 17 array of camera over a plane orthogonal to the optical axis (the center camera). The goal of this project is to take the data they provided in the <a href="http://lightfield.stanford.edu/lfs.html">Stanford Light Field Archive</a> and demonstrate the computations necessary to achieve the aforementioned effects using simple algorithms.</p>
+
+    
+
+    <h2>Implementation: Depth Refocusing</h2>
+      <p>
+      Objects farther away in an image do not appear to change much when a person varies their position as opposed to foreground object (which move quite a bit when we do). This principle is one of the main reasons why it's easy for us to determine if an object is father away from us when we move. If we average all the images in the dataset together we end up with an image with sharp far away objects and blurry nearby ones. To get around this, and to sharpen foreground objects we simply center the image around a center image, and then we shift the images that surround it (which range from [-8, 8] given a 17 by 17 array) by the amount we would like to adjust the depth focus by. In this is I used a range of [-3, 1] with step values of 1. This took around 5 minutes make the images. 
+      </p>
+
+    <p>Here is how one of the images looks:</p>
+
+      <h3>Chess</h3>
+      <img src="images/chess_rf.gif">
+
+<!--       <h3>Tarot Cards</h3>
+        <table class="spacearound">
+          <tr>
+            <td>
+                <img src="images/_.png">
+                <p>Largest Aperture</p>
+            </td>
+
+            <td>
+                <img src="images/_1.gif">
+                <p>Aperture Range</p>
+            </td>
+          </tr>
+        </table> -->
+
+<!--     <h3>Jellybeans</h3>
+        <table class="spacearound">
+          <tr>
+            <td>
+                <img src="images/jellybeans.png">
+                <p>Largest Aperture</p>
+            </td>
+
+            <td>
+                <img src="images/jellybeans.gif">
+                <p>Aperture Range</p>
+            </td>
+          </tr>
+        </table> -->
+
+    <h2>Implementation: Aperture Adjustment</h2>
+      <p>
+      By averaging a large number of images surrounding the optical axis (on a grid), we can deliminate ranges that correspond to aperture sizes. This is because in a camera the aperture get bigger and allows more light in which is very similar to allowing a larger range of image ranges to contribute to our average image. Similarly a smaller aperture would correspond to decreasing the amount of light in an image, and thus mean to decrease the range of images contributing to our average.</p>
+
+      <p>Let's see how this looks in practice:
+      </p>
+
+      <h3>Chess</h3>
+        <table class="spacearound">
+          <tr>
+            <td>
+                <img src="images/chess.png">
+                <p>Largest Aperture</p>
+            </td>
+
+            <td>
+                <img src="images/chess.gif">
+                <p>Aperture Range</p>
+            </td>
+          </tr>
+        </table>
+
+      <h3>Tarot Cards</h3>
+        <table class="spacearound">
+          <tr>
+            <td>
+                <img src="images/tarot.png">
+                <p>Largest Aperture</p>
+            </td>
+
+            <td>
+                <img src="images/tarot.gif">
+                <p>Aperture Range</pchess
+            </td>
+          </tr>
+        </table>
+
+<!--     <h3>Jellybeans</h3>
+        <table class="spacearound">
+          <tr>
+            <td>
+                <img src="images/_.png">
+                <p>Largest Aperture</p>
+            </td>
+
+            <td>
+                <img src="images/_1.gif">
+                <p>Aperture Range</p>
+            </td>
+          </tr>
+        </table> -->
+
+<!--     <table class="spacearound">
+      <tr>
+        <td>
+            <img src="images/obama.gif" width=700>
+            <p>Barrack Obama</p>
+        </td>
+
+        <td>
+            <img src="images/obama_mccain.gif" width=700>
+            <p>Average Image</p>
+        </td>
+
+        <td>
+            <img src="images/mccain.gif" width=700>
+            <p>John McCain</p>
+        </td>
+      </tr>
+    </table>
+
+    <table class="spacearound">
+      <tr>
+        <td>
+            <img src="images/obama.gif" width=700>
+            <p>Barack Obama</p>
+        </td>
+
+        <td>
+            <img src="images/obama_mccain.gif" width=700>
+            <p>Morphing GIF</p>
+        </td>
+
+        <td>
+            <img src="images/mccain.gif" width=700>
+            <p>John McCain</p>
+        </td>
+      </tr>
+    </table>
+
+    <table class="spacearound">
+      <tr>
+        <td>
+            <img src="images/pitt.gif" width=700>
+            <p>Brad Pitt</p>
+        </td>
+
+        <td>
+            <img src="images/pitt_bryant.gif" width=700>
+            <p>Morphing GIF</p>
+        </td>
+
+        <td>
+            <img src="images/bryant.gif" width=700>
+            <p>Kobe Bryant</p>
+        </td>
+      </tr>
+    </table> -->
+     
+
+    <h2>What I Learned</h2>
+    This was a really fascinating project. I first heard about Lytro quite a few years ago, but didn't not really understand the technology that drives the camera. It is novel technology with really interesting mathematics behind it, and I thoroughly enjoyed the paper. It is truly beautiful thing to begin to understand the world in a way which one hasn't before. 
+    <br><br><br>
+
+    </div>
+  </div>
+
+  </body> 
+</html>

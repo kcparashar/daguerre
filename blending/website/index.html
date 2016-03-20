@@ -1,0 +1,490 @@
+<html>
+    
+<head>
+    <script src="assets/js/jquery-1.9.1.js"></script>
+    <script src="assets/js/script.js"></script>
+    <link rel="stylesheet" type="text/css" href="assets/css/style.css">
+    <link href='http://fonts.googleapis.com/css?family=Lato:300,400,700&subset=latin,greek-ext' rel='stylesheet' type='text/css'>
+</head>
+    
+<body>
+    <div id="modal">
+        <div id="modal-overlay">
+        </div>
+        <div id="modal-content"> 
+            <div id="container">
+                <div class="image-container">
+                    <img id="photo-modal" src=""/> 
+                </div>
+            </div>
+        </div>
+    </div>
+    <div id="header">
+        <div id="project-name">
+            Project 3: Fun with Frequencies!
+        </div>
+        <div id="name">
+            Krishna Parashar
+        </div>
+        <div id="class-name">
+            CS194-26 | Fall 15
+        </div>
+    </div>
+    <div id="content">
+        <div class="elem">
+            <div class="text-title">Part 0: Unsharpen</div>
+            <div class="text">
+                For this part, we applied the Unsharpen Mask Filter onto images in order to "sharpen" them. This was done by taking a low pass of the original image, subtracting it from the original image, and then adding the leftover high frequencies to the original image (a portion of those values we call the alpha value) in order to accentuate the edges of the image, causing the image to appear sharper.
+            </div>
+        </div>
+        <div class="elem">
+            <div class="photo-elem">
+                <img class="photo" src="assets/img/ben.jpg"/>
+                <div class="description">
+                    <div class="description-title">
+                        Big Ben Blurred
+                    </div>
+                    <div class="description-info">
+                    </div>
+                </div>
+            </div>
+            <div class="photo-elem">
+                <img class="photo" src="assets/img/ben_sharp.jpg"/>
+                <div class="description">
+                    <div class="description-title">
+                        Big Ben Sharp
+                    </div>
+                    <div class="description-info">
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+        <div class="elem">
+            <div class="text-title">
+                Part 1: Hybrid  
+            </div>
+        </div>
+        <div class="elem">
+            <div class="image-text">
+               For this part of the project we took two images that were similar in some manner - shape, size, color, etc - and created a hybrid image of the two by taking the low frequencies from one of them, and the higher frequencies of the other, and overlaying them on top of each other. What this provided is the low frequencies being more visible from a closer distance, and the higher frequencies appearing as more prominent from a farther distance. Much like the famous Marilyn Monroe and Albert Einstein <a href='http://www.123opticalillusions.com/pages/albert-einstein-marilyn-monroe.jpg'>image</a>, this "tricks" our eyes into to seeing two images in one - just at different distances. I successfully applied this to a picture of a Pepperoni Pizza and out lovely Moon that encircles our planet. 
+            </div>
+            <div class="photo-pair">
+                <div class="fourth-photo-elem">
+                    <img class="photo" src="assets/img/moon.jpg"/>
+                    <div class="description">
+                        <div class="description-title">
+                            Moon
+                        </div>
+                        <div class="description-info">
+                        </div>
+                    </div>
+                </div>
+                <div class="fourth-photo-elem">
+                    <img class="photo" src="assets/img/pizza.jpg"/>
+                    <div class="description">
+                        <div class="description-title">
+                            Pizza
+                        </div>
+                        <div class="description-info">
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="photo-pair">
+                <div class="fourth-photo-elem">
+                    <img class="photo" src="assets/img/poon_low_freq.jpg"/>
+                    <div class="description">
+                        <div class="description-title">
+                            Moon (Low Frequency)
+                        </div>
+                        <div class="description-info">
+                        </div>
+                    </div>
+                </div>
+                <div class="fourth-photo-elem">
+                    <img class="photo" src="assets/img/poon_high_freq.jpg"/>
+                    <div class="description">
+                        <div class="description-title">
+                            Pizza (High Frequency)
+                        </div>
+                        <div class="description-info">
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="photo-elem">
+                <img class="photo" src="assets/img/poon_hybrid.jpg"/>
+                <div class="description-title">Final Result (Poon)</div>
+        </div>
+        <div class="elem">
+            <div class="image-text">
+                Here we have the FFT Images that can help a trained eye see the frequency domain of each image at each stage in its career as a hybrid image. 
+            </div>
+            <div class="photo-pair">
+                <div class="fourth-photo-elem">
+                    <img class="photo" src="assets/img/moon_fft.jpg"/>
+                    <div class="description">
+                        <div class="description-title">
+                            Moon FFT
+                        </div>
+                        <div class="description-info">
+                        </div>
+                    </div>
+                </div>
+                <div class="fourth-photo-elem">
+                    <img class="photo" src="assets/img/pizza_fft.jpg"/>
+                    <div class="description">
+                        <div class="description-title">
+                            Pizza FFT
+                        </div>
+                        <div class="description-info">
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="photo-elem">
+                <img class="photo" src="assets/img/poon_fft.jpg"/>
+                <div class="description-title">Final Result (Poon) FFT</div>
+            </div>
+            <div class="photo-pair">
+                <div class="fourth-photo-elem">
+                    <img class="photo" src="assets/img/poon_high_freq_fft.jpg"/>
+                    <div class="description">
+                        <div class="description-title">
+                            High Frequency FFT
+                        </div>
+                        <div class="description-info">
+                        </div>
+                    </div>
+                </div>
+                <div class="fourth-photo-elem">
+                    <img class="photo" src="assets/img/poon_low_freq_fft.jpg"/>
+                    <div class="description">
+                        <div class="description-title">
+                            Low Frequency FFT
+                        </div>
+                        <div class="description-info">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="elem">
+            <div class="image-text">
+                This was another hybrid image that was constructed using a spiderman face and a venom picture. The image kind of works, but the black background of the Venom picture leeks through at all distances. 
+            </div>
+            <div class="third-photo-elem">
+                <img class="photo" src="assets/img/spiderman.jpg"/>
+                <div class="description">
+                    <div class="description-title">
+                        Spiderman
+                    </div>
+                </div>
+            </div>
+            <div class="third-photo-elem">
+                <img class="photo" src="assets/img/venom.jpg"/>
+                <div class="description">
+                    <div class="description-title">
+                        Venom
+                    </div>
+                </div>
+            </div>
+            <div class="third-photo-elem">
+                <img class="photo" src="assets/img/venoman_hybrid.jpg"/>
+                <div class="description">
+                    <div class="description-title">
+                        Venoman
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="elem">
+            <div class="image-text">
+                Failure: While it would seem like an obvious choice to create a hybrid image of nature's flying creature (a bird) and man's flying creature (a plane), unfortunately reality doesn't conform to our grandiose expectations. Birds aren't (generally) as long as planes, and boy do similar looking skies turn out to be very different (thanks clouds, for always becoming a different feature). This hybrid image ended up being utterly disappointing. 
+            </div>
+            <div class="third-photo-elem">
+                <img class="photo" src="assets/img/plane.jpg"/>
+                <div class="description">
+                    <div class="description-title">
+                        Bird
+                    </div>
+                </div>
+            </div>
+            <div class="third-photo-elem">
+                <img class="photo" src="assets/img/bird.jpg"/>
+                <div class="description">
+                    <div class="description-title">
+                        Plane
+                    </div>
+                </div>
+            </div>
+            <div class="third-photo-elem">
+                <img class="photo" src="assets/img/blane_hybrid.jpg"/>
+                <div class="description">
+                    <div class="description-title">
+                        Blane
+                    </div>
+                </div>
+            </div>
+        </div>
+
+<!-- ########################### PART 2 ########################### -->
+        <div class="elem">
+            <div class="text-title">Part 2: Stacks</div>
+            <div class="text">
+                These are stack analysis for each level of some of my choice photos. We see the high frequencies and low frequencies of each hybrid image at different standard deviation (sigma) values.
+            </div>
+        </div>
+
+        <div class="elem">
+            <div class="long-photo-elem">
+                <img class="photo" src="assets/img/lisa_stacks.png"/>
+                <div class="description-title"> Stack Analysis for Mona Lisa </div>
+                <div class="description-info">Six Levels</div>
+            </div>
+            <div class="long-photo-elem">
+                <img class="photo" src="assets/img/dali_stacks.jpg"/>
+                <div class="description-title"> Stack Analysis for Gala Contemplating the Mediterranean Sea </div>
+                <div class="description-info">Six Levels</div>
+            </div>
+            <div class="long-photo-elem">
+                <img class="photo" src="assets/img/poon_hybrid_stacks.jpg"/>
+                <div class="description-title"> Stack Analysis for Poon (#favourite) </div>
+                <div class="description-info">Six Levels</div>
+            </div>
+        </div>
+
+
+
+        <div class="elem">
+            <div class="text-title">Part 3</div>
+            <div class="text">
+                Ah. Now we get to the fun, stunning, beautiful, rewarding, __insert favorite adjective here__, part of this project: image blending. It is in this part where we take two images and a mask and turn them into a relatively seemless image that blends the two images together according to the dictations of the mask. We ended up with surprisingly very good results, when comparing it to the painstaking task of doing this manually. (Please note that the many of following choices of images were pulled from previous year's projects. All results are from my own program.)
+            </div>
+        </div>
+
+        <div class="elem">
+            <div class="text">
+                This was by far the best outcome from from all the image blends. Although there is quite obvious noise and feature shadows in the image, for being made automatically in 4.3 second, it's pretty damn good.
+            </div>
+            <div class="third-photo-elem">
+                <img class="photo" src="assets/img/crater1.jpg"/>
+                <div class="description">
+                    <div class="description-title">
+                        Crater Lake Day
+                    </div>
+                    <div class="description-info">
+                    </div>
+                </div>
+            </div>
+            <div class="third-photo-elem">
+                <img class="photo" src="assets/img/crater2.jpg"/>
+                <div class="description">
+                    <div class="description-title">
+                        Crate Lake Night
+                    </div>
+                    <div class="description-info">
+                    </div>
+                </div>
+            </div>
+            <div class="third-photo-elem">
+                <img class="photo" src="assets/img/gradient_crater.jpg"/>
+                <div class="description">
+                    <div class="description-title">
+                        Gradient Mask
+                    </div>
+                    <div class="description-info">
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="elem">
+            <div class="long-photo-elem">
+                <img class="photo" src="assets/img/crater_blend.jpg"/>
+                <div class="description-title"> Crate Lake Blend</div>
+            </div>
+            <div class="long-photo-elem">
+                <img class="photo" src="assets/img/crater_blend_stacks.jpg"/>
+                <div class="description-title"> Crate Lake Blend Stack Analysis</div>
+                <div class="description-info">Three Levels</div>
+            </div>
+        </div>
+
+        <div class="elem">
+            <div class="image-text">
+                We of course can't forget our friend and legendary fruit, the oraple for gracing us with its citrusy crunch. 
+            </div>
+            <div class="third-photo-elem">
+                <img class="photo" src="assets/img/orange.jpg"/>
+                <div class="description">
+                    <div class="description-title">
+                        Orange
+                    </div>
+                    <div class="description-info">
+                    </div>
+                </div>
+            </div>
+            <div class="third-photo-elem">
+                <img class="photo" src="assets/img/apple.jpg"/>
+                <div class="description">
+                    <div class="description-title">
+                        Apple
+                    </div>
+                    <div class="description-info">
+                    </div>
+                </div>
+            </div>
+            <div class="third-photo-elem">
+                <img class="photo" src="assets/img/orapple_mask.jpg"/>
+                <div class="description">
+                    <div class="description-title">
+                        Binary Mask
+                    </div>
+                    <div class="description-info">
+                    </div>
+                </div>
+            </div>
+            <div class="third-photo-elem">
+                <img class="photo" src="assets/img/orapple_blend.jpg"/>
+                <div class="description-title"> Oraple </div>
+            </div>
+        </div>
+
+
+        <div class="elem">
+            <div class="image-text">
+                This image of Manhattan with different (manual) filters turned out very nice, with the seemless transition allowing for a dramatic appeal.
+            </div>
+            <div class="third-photo-elem">
+                <img class="photo" src="assets/img/manhattan1.jpg"/>
+                <div class="description">
+                    <div class="description-title">
+                        Manhattan Yellow
+                    </div>
+                    <div class="description-info">
+                    </div>
+                </div>
+            </div>
+            <div class="third-photo-elem">
+                <img class="photo" src="assets/img/manhattan2.jpg"/>
+                <div class="description">
+                    <div class="description-title">
+                        Manhattan Blue
+                    </div>
+                    <div class="description-info">
+                    </div>
+                </div>
+            </div>
+            <div class="third-photo-elem">
+                <img class="photo" src="assets/img/gradient_man.jpg"/>
+                <div class="description">
+                    <div class="description-title">
+                        Gradient Mask
+                    </div>
+                    <div class="description-info">
+                    </div>
+                </div>
+            </div>
+            <div class="third-photo-elem">
+                <img class="photo" src="assets/img/manhattan_blend.jpg"/>
+                <div class="description-title"> Dramanhattan </div>
+            </div>
+        </div>
+
+        <div class="elem">
+            <div class="image-text">
+                This image used a special mask made using photoshop. 
+            </div>
+            <div class="third-photo-elem">
+                <img class="photo" src="assets/img/nights.jpg"/>
+                <div class="description">
+                    <div class="description-title">
+                        Night Sky
+                    </div>
+                    <div class="description-info">
+                    </div>
+                </div>
+            </div>
+            <div class="third-photo-elem">
+                <img class="photo" src="assets/img/city.jpg"/>
+                <div class="description">
+                    <div class="description-title">
+                        City
+                    </div>
+                    <div class="description-info">
+                    </div>
+                </div>
+            </div>
+            <div class="third-photo-elem">
+                <img class="photo" src="assets/img/city_mask.jpg"/>
+                <div class="description">
+                    <div class="description-title">
+                        Irregular Mask
+                    </div>
+                    <div class="description-info">
+                    </div>
+                </div>
+            </div>
+            <div class="third-photo-elem">
+                <img class="photo" src="assets/img/city_nights_blend.jpg"/>
+                <div class="description-title"> City Nights </div>
+            </div>
+        </div>
+
+        <div class="elem">
+            <div class="image-text">
+                This is where things didn't work. Welp. The background for the moon and odd shape of the pizza ensured this image would be anything but a seemless blend. 
+            </div>
+            <div class="third-photo-elem">
+                <img class="photo" src="assets/img/pizza.jpg"/>
+                <div class="description">
+                    <div class="description-title">
+                        Pizza
+                    </div>
+                    <div class="description-info">
+                    </div>
+                </div>
+            </div>
+            <div class="third-photo-elem">
+                <img class="photo" src="assets/img/moon.jpg"/>
+                <div class="description">
+                    <div class="description-title">
+                        Moon
+                    </div>
+                    <div class="description-info">
+                    </div>
+                </div>
+            </div>
+            <div class="third-photo-elem">
+                <img class="photo" src="assets/img/gradient_moon.jpg"/>
+                <div class="description">
+                    <div class="description-title">
+                        Gradient Mask
+                    </div>
+                    <div class="description-info">
+                    </div>
+                </div>
+            </div>
+
+            <div class="third-photo-elem">
+                <img class="photo" src="assets/img/poon_blend.jpg"/>
+                <div class="description-title"> Poon (Fail) </div>
+            </div>
+        </div>
+
+
+
+        <div class="elem">
+            <div class="text-title">MITOTP: Most Interesting Thought of the Project</div>
+            <div class="text">
+                My god. Seeing the effects I took for granted in terms of frequencies and signal analysis has changed the way I see the world now. It's moments like this where I am a proud of going to Berkeley.
+            </div>
+        </div>
+    </div>
+</body>
+</html>

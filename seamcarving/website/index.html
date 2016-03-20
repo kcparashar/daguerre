@@ -1,0 +1,308 @@
+<html>
+  <head>
+      <link href="https://fonts.googleapis.com/css?family=Raleway:400,400,600" rel="stylesheet" type="text/css">
+
+      <link rel="stylesheet" href="css/normalize.css">
+      <link rel="stylesheet" href="css/skeleton.css">
+      <link rel="styleSheet" href="css/main.css">
+
+      <style type="text/css"></style>
+
+  </head>
+  <body class="default">
+    <div class="container">
+      <div class="row">
+        <div class="four column" style="margin-top: 10%">
+        <h1>Project Four: Seam Carving Images</h1>
+        <h5>CS 194-26: Computational Photography | <a href="http://krishna.im">Krishna Parashar</a></h5>
+
+    <h2>Background: Seam Carving</h2>
+    <p>One of the problems one faces with images, especially now when there are a myriad of screen sizes, is how to display them without distortion, cropping, and other methods that lose obvious information and noticeable features. A paper written at SIGGRAPH was <a href="http://inst.eecs.berkeley.edu/~cs194-26/fa15/hw/proj4-seamcarving/imret.pdf"><i>Seam Carving for Content-Aware Image Resizing</i></a> by Shai Avidan and Ariel Shamir that sought to help eliminate this problem using a simple and clever algorithm. </p>
+
+
+
+    <p> For this assignment, I implemented a naive and (slow) version of their algorithm to understand the process. My algorithm can resize the image both horizontally and vertically. While their <a href="http://www.youtube.com/watch?v=6NcIJXTlugc">video</a> provides a much better (and more visual demonstration), I will try to describe the algorithm below:</p>
+    <ol>
+      <li>Determine the value each pixel has using an <i>energy function</i>.</li>
+      <li>Until image has had the requested number of seams removed:
+        <ol>
+          <li>Find the lowest-value <i>seam</i> in the image (the path with the least energy)</li>
+          <li>Remove the seam</li>
+        </ol>
+      </li>
+    </ol>
+
+<!-- 
+   <table class="spacearound">
+     <tr>
+       <th>
+         <img class="u-max-full-width" src="images/pinholecamera.jpg" height=400>
+       </th>
+       <th>
+         <img class="u-max-full-width" src="images/camera_obscura_1.jpeg" height=400>
+       </th>
+     </tr>
+   </table>
+   <img class="u-max-full-width" src="images/camera-obscura-drawing.jpg" height=420> -->
+    
+    <br><br><br>
+
+    <h2>Implementation</h2>
+      <p>The energy fucntion I choose to use was the Gradient Magnitude from the value of the image passed through a Sobel Filter. I first converted the image to grayscale, found the magnitude of the gradient in both the horizontal and vertical directions, and returned the array for lookup. A  vertical seam was calculated is a connected path from the top to the bottom of the image that chooses exactly one pixel from each column in a connected form. A horizontal was calculated by flipping the image over, removing seams, and then flipping it back. Once I found the cheapest seam in the energy of the image, I removed the pixels from the original image which fell along that seam reducing the size of the image and repeating this process until the desired dimensions were constructed. 
+      </p>
+
+    <br><br><br>
+
+    <h2>Results</h2>
+    <p> I was pleasently surprised by how such a simple algorithms could have such substantiative results. All the images below were taken by me. Let's see how they look after being carved. <p>
+    <br><br>
+
+    <table class="spacearound">
+      <tr>
+        <td>
+            <img src="images/moon.jpg" width=400>
+            <p>Original Image</p>
+        </td>
+
+        <td>
+            <img src="images/moon.jpg" width=400>
+            <p>10% Width Seam Carved</p>
+        </td>
+
+        <td>
+            <img src="images/moon.jpg" width=400>
+            <p>50% Width Seam Carved</p>
+        </td>
+      </tr>
+    </table>
+
+    <table class="spacearound">
+      <tr>
+        <td>
+            <img src="images/heart.jpg" width=400>
+            <p>Original Image</p>
+        </td>
+
+        <td>
+            <img src="images/heart_h100.jpg" width=400>
+            <p>100px Height Seam Carved</p>
+        </td>
+
+        <td>
+            <img src="images/heart_w100.jpg" width=400>
+            <p>100px Width Seam Carved</p>
+        </td>
+      </tr>
+    </table>
+    
+    <table class="spacearound">
+      <tr>
+        <td>
+            <img src="images/library.jpg" width=400>
+            <p>Original Image</p>
+        </td>
+
+        <td>
+            <img src="images/library_h100.jpg" width=400>
+            <p>100px Height Seam Carved</p>
+        </td>
+
+        <td>
+            <img src="images/library_w100.jpg" width=400>
+            <p>100px Width Seam Carved</p>
+        </td>
+      </tr>
+    </table>
+
+    <table class="spacearound">
+      <tr>
+        <td>
+            <img src="images/donuts.jpg" width=400>
+            <p>Original Image</p>
+        </td>
+
+        <td>
+            <img src="images/donuts_h100.jpg" width=400>
+            <p>100px Height Seam Carved</p>
+        </td>
+
+        <td>
+            <img src="images/donuts_w100.jpg" width=400>
+            <p>100px Width Seam Carved</p>
+        </td>
+      </tr>
+    </table>
+
+    <table class="spacearound">
+      <tr>
+        <td>
+            <img src="images/monkey.jpg" width=400>
+            <p>Original Image</p>
+        </td>
+
+        <td>
+            <img src="images/monkey_h100.jpg" width=400>
+            <p>100px Height Seam Carved</p>
+        </td>
+
+        <td>
+            <img src="images/monkey_w100.jpg" width=400>
+            <p>100px Width Seam Carved</p>
+        </td>
+      </tr>
+    </table>
+
+    <table class="spacearound">
+      <tr>
+        <td>
+            <img src="images/ben.jpg" width=400>
+            <p>Original Image</p>
+        </td>
+
+        <td>
+            <img src="images/ben_h100.jpg" width=400>
+            <p>100px Height Seam Carved</p>
+        </td>
+
+        <td>
+            <img src="images/ben_w100.jpg" width=400>
+            <p>100px Width Seam Carved</p>
+        </td>
+      </tr>
+    </table>
+
+    <table class="spacearound">
+      <tr>
+        <td>
+            <img src="images/crater.jpg" width=400>
+            <p>Original Image</p>
+        </td>
+
+        <td>
+            <img src="images/crater_h100.jpg" width=400>
+            <p>100px Height Seam Carved</p>
+        </td>
+
+        <td>
+            <img src="images/crater_w100.jpg" width=400>
+            <p>100px Width Seam Carved</p>
+        </td>
+      </tr>
+    </table>  
+
+
+    <table class="spacearound">
+      <tr>
+        <td>
+            <img src="images/tree.jpg" width=400>
+            <p>Original Image</p>
+        </td>
+
+        <td>
+            <img src="images/tree_h100.jpg" width=400>
+            <p>100px Height Seam Carved</p>
+        </td>
+
+        <td>
+            <img src="images/tree_w100.jpg" width=400>
+            <p>100px Width Seam Carved</p>
+        </td>
+      </tr>
+    </table>
+
+
+    <table class="spacearound">
+      <tr>
+        <td>
+            <img src="images/vol.jpg" width=400>
+            <p>Original Image</p>
+        </td>
+
+        <td>
+            <img src="images/vol_h100.jpg" width=400>
+            <p>100px Height Seam Carved</p>
+        </td>
+
+        <td>
+            <img src="images/vol_w100.jpg" width=400>
+            <p>100px Width Seam Carved</p>
+        </td>
+      </tr>
+    </table>
+
+
+    <br><br><br>
+
+    <h2>Bad Results</h2>
+    Obviously, everything doesn't always work. Most notably faces are easy to detect when even a small bit modified as well as buildings and geometrical objects (their paths are disrupted), so here is the gallery of shame. Notice how the images generally still look okay when seams are removed in one direction, but not in the other. 
+
+
+    <table class="spacearound">
+      <tr>
+        <td>
+            <img src="images/me.jpg" width=400>
+            <p>Original Image</p>
+        </td>
+
+        <td>
+            <img src="images/me_h100.jpg" width=400>
+            <p>100px Height Seam Carved</p>
+        </td>
+
+        <td>
+            <img src="images/me_w100.jpg" width=400>
+            <p>100px Width Seam Carved</p>
+        </td>
+      </tr>
+    </table>
+
+
+    <table class="spacearound">
+      <tr>
+        <td>
+            <img src="images/eiffle.jpg" width=400>
+            <p><a href="http://si.wsj.net/public/resources/images/BN-IO248_tower0_J_20150522095343.jpg">Original Image</a></p>
+        </td>
+
+        <td>
+            <img src="images/eiffle_h100.jpg" width=400>
+            <p>100px Height Seam Carved</p>
+        </td>
+
+        <td>
+            <img src="images/eiffle_w100.jpg" width=400>
+            <p>100px Width Seam Carved</p>
+        </td>
+      </tr>
+    </table>
+
+    <table class="spacearound">
+      <tr>
+        <td>
+            <img src="images/mac.jpg" width=400>
+            <p><a href="http://store.storeimages.cdn-apple.com/4735/as-images.apple.com/is/image/AppleInc/aos/published/images/m/ac/macbook/select/macbook-select-spacegray-201501?wid=1200&hei=630&fmt=jpeg&qlt=95&op_sharpen=0&resMode=bicub&op_usm=0.5,0.5,0,0&iccEmbed=0&layer=comp&.v=1425921761087">Original Image</a></p>
+        </td>
+
+        <td>
+            <img src="images/mac_h100.jpg" width=400>
+            <p>100px Height Seam Carved</p>
+        </td>
+
+        <td>
+            <img src="images/mac_w100.jpg" width=400>
+            <p>100px Width Seam Carved</p>
+        </td>
+      </tr>
+    </table>
+
+    <br><br><br>
+
+    <h2>What I Learned</h2>
+    This project was definitely a little exhausting, especially working around all the different array and list, each with their opportunity for one-off and indexing errors. I was definitely amazed by how useful dynamic programming was for this assignment, and it definitely tied together a lot of loose concepts we have discussed in this course. This was a really cool assignment, so my thanks to all who were involved in creating this project.
+    <br><br><br>
+
+    </div>
+  </div>
+
+  </body> 
+</html>

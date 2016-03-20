@@ -1,0 +1,130 @@
+<html>
+  <head>
+      <link href="https://fonts.googleapis.com/css?family=Raleway:700,700,600" rel="stylesheet" type="text/css">
+
+      <link rel="stylesheet" href="css/normalize.css">
+      <link rel="stylesheet" href="css/skeleton.css">
+      <link rel="styleSheet" href="css/main.css">
+
+      <style type="text/css"></style>
+
+  </head>
+  <body class="default">
+    <div class="container">
+      <div class="row">
+        <div class="four column" style="margin-top: 10%">
+        <h1>Project Seven A: Image Warping and Mosaicing</h1>
+        <h5>CS 194-26: Computational Photography | <a href="http://krishna.im">Krishna Parashar</a></h5>
+
+    <h2>Background: Homographies</h2>
+    <p>
+    In this project we want to change the perspective of images for a the novel application of taking a series of adjacent images and converting them into a seamless panorama. To do this we take advantage of a linear algebra techniques to calculate a homography which is a fancy way of saying the matrix we need to transform the coordinates way have to to find where they should go. We start by taking some photographs, and then we manually define correspondence points between the two images (we need at least 4 to make this work, more if we want a nicer transformation). We then compute the following to get our homography matrix. We use least squares to compute the value for a, b, c, d, e, f, g, and h, where i is 1 - our scale factor.
+    </p>
+    <img src="images/homography.png">
+    
+
+    <h2>Implementation: Image Rectification</h2>
+      <p>
+      After computing the Homography matrix, I tested it out by rectifying (making rectangular) some images that I took that were at an angle. This is done by manually setting the correspondence points to something that is rather rectangular and then morphing the image towards that. 
+      </p>
+
+    <p>Here is how the rectified images look:</p>
+
+      <h3>Holstee Manifesto</h3>
+        <table class="spacearound">
+          <tr>
+            <td>
+                <img src="images/holstee.jpg">
+                <p>Original</p>
+            </td>
+
+            <td>
+                <img src="images/holstee_rectified.jpg">
+                <p>Rectified</p>
+            </td>
+          </tr>
+        </table>
+
+    <h3>Graph Theory</h3>
+        <table class="spacearound">
+          <tr>
+            <td>
+                <img src="images/graph.jpg">
+                <p>Original</p>
+            </td>
+
+            <td>
+                <img src="images/graph_rectified.jpg">
+                <p>Rectified</p>
+            </td>
+          </tr>
+        </table>
+
+    <h2>Implementation: Image Mosaicing</h2>
+      <p>
+      Now that we know the homography and warping works, we are ready to warp the images and blend them together to make a panorama. We blend these images together using a simple weighted average.</p>
+
+      <h3>Sunset</h3>
+        <table class="spacearound">
+          <tr>
+            <td>
+                <img src="images/sunset_1.jpg">
+                <p>First Image</p>
+            </td>
+            <td>
+                <img src="images/sunset_2.jpg">
+                <p>Second Image</p>
+            </td>
+          </tr>
+        </table>
+        <img src="images/sunset_panaroma.jpg">
+        <p>Sunset Panorama</p>
+
+
+      <!-- <img src="images/sunset.jpg"> -->
+
+      <h3>The View from the Thames</h3>
+        <table class="spacearound">
+          <tr>
+            <td>
+                <img src="images/london_1.jpg">
+                <p>First Image</p>
+            </td>
+            <td>
+                <img src="images/london_2.jpg">
+                <p>Second Image</p>
+            </td>
+          </tr>
+        </table>
+
+        <img src="images/london_panaroma.jpg">
+        <p>London Panorama</p>
+     
+      <h3>The View from the Campanile</h3>
+        <table class="spacearound">
+          <tr>
+            <td>
+                <img src="images/campanile_1.jpg">
+                <p>First Image</p>
+            </td>
+            <td>
+                <img src="images/campanile_2.jpg">
+                <p>Second Image</p>
+            </td>
+          </tr>
+        </table>
+
+        <img src="images/campanile_panaroma.jpg">
+        <p>Campanile Panorama</p>
+
+    <h2>What I Learned</h2>
+    <p>
+    I used to simply take for granted the panorama stitching feature in Lightroom and on my phone. Now I still will, but now it is immensely cooler to know how those images are combined together. 
+    </p> 
+    <br><br><br>
+
+    </div>
+  </div>
+
+  </body> 
+</html>
